@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function Loader() {
+const Loading = () => {
   return (
-    <>
-     <span className="loading loading-spinner loading-lg"></span>
-    </>
-  )
-}
+    <div className='dots-container'>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
+    </div>
+  );
+};
 
-export default Loader
+export default Loading;

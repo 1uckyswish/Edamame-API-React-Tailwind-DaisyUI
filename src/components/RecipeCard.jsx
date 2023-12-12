@@ -1,23 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function RecipeCard({recipe}) {
-    const {image, label, cuisineType, dietLabel, mealType, url} = recipe?.recipe;
+    const {image, label, cuisineType, dietLabel, mealType, uri, dishType, healthLabels, calories, totalTime} = recipe?.recipe;
+    const id = uri?.split("#")[1];
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2R8ZW58MHx8MHx8fDA%3D" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-accent">NEW</div>
+    <Link to={`/recipes/${id}`} className='w-full md:w-[450px]'>
+    <div className="card bg-base-100 shadow-xl w-auto text-black">
+  <figure><img src={image} alt={label} className='rounded-lg h-[500px] md:h-[200px] w-full'/></figure>
+  <div className="card-body p-3">
+    <h2 className="card-title font-bold">
+     {label}
     </h2>
-    <div className="card-actions justify-start">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
+    <div className="justify-start pb-0.5">
+         <div className="badge badge-accent text-[12px] capitalize">{cuisineType[0]}</div>
+       <div className="badge badge-accent text-[12px] capitalize">{mealType}</div>
     </div>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    
+       
+    <div className="card-actions justify-start">
+      {
+        healthLabels.slice(0, 4).map((item)=>{
+            return <div className="badge badge-outline">{item}</div>
+        })
+      }
+    </div>
+    <p>In just {totalTime} minutes, this {cuisineType[0]}-inspired dish brings together a burst of flavors, creating a satisfying meal with a total of {parseInt(calories)} calories. Treat yourself to the perfect recipe</p>
+    <div className="card-actions justify-start">
+      <button className="btn btn-primary">Buy Now</button>
+    </div>
   </div>
 </div>
+ </Link>
   )
 }
 
