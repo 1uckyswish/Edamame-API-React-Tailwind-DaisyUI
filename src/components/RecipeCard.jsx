@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function RecipeCard({recipe}) {
-    const {image, label, cuisineType, mealType, uri, dishType, healthLabels, calories, totalTime} = recipe?.recipe;
+    const {image, label, cuisineType, mealType, uri, dishType, healthLabels, calories, totalTime, url} = recipe?.recipe;
     const id = uri?.split("#")[1];
 
     const phrases = [
@@ -72,7 +72,7 @@ const formattedText = randomPhrase
      <p>{formattedText}</p>
    <div className="flex justify-center">
             <Link to={`/recipes/${id}`} className="btn btn-primary">View Recipe</Link>
-            <Link to={`/recipes/${id}`} className="btn btn-accent ml-2">Read Article</Link>
+            <Link to={`${url}`} className="btn btn-accent ml-2">Read Article</Link>
           </div>
         </div>
       </div>
