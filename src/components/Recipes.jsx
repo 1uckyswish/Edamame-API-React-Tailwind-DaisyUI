@@ -8,7 +8,7 @@ import { fetchRecipes } from "../utils";
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("Mexican");
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(12);
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
@@ -46,26 +46,49 @@ function Recipes() {
             rightIcon={<BsSearch className="text-gray-600 " />}
           />
         </form>
-        
       </div>
-       <div className="flex justify-evenly items-start pt-10">
- <button className="btn btn-active" onClick={()=>setQuery("Breakfast")}>Breakfast</button>
-<button className="btn btn-active btn-neutral" onClick={()=>setQuery("Lunch")}>Lunch</button>
-<button className="btn btn-active btn-primary" onClick={()=>setQuery("Dinner")}>Dinner</button>
-<button className="btn btn-active btn-secondary" onClick={()=>setQuery("Snack")}>Snack</button>
-<button className="btn btn-active btn-accent" onClick={()=>setQuery("Teatime")}>Teatime</button>
- </div>
+      <div className="flex justify-evenly items-start pt-10">
+        <button
+          className="btn btn-active"
+          onClick={() => setQuery("Breakfast")}
+        >
+          Breakfast
+        </button>
+        <button
+          className="btn btn-active btn-neutral"
+          onClick={() => setQuery("Lunch")}
+        >
+          Lunch
+        </button>
+        <button
+          className="btn btn-active btn-primary"
+          onClick={() => setQuery("Dinner")}
+        >
+          Dinner
+        </button>
+        <button
+          className="btn btn-active btn-secondary"
+          onClick={() => setQuery("Snack")}
+        >
+          Snack
+        </button>
+        <button
+          className="btn btn-active btn-accent"
+          onClick={() => setQuery("Teatime")}
+        >
+          Teatime
+        </button>
+      </div>
       {recipes?.length > 0 ? (
         <>
-          <div className="w-full flex flex-wrap gap-10 px-0 lg:px-10 py-10 text-white">
+          <div className="w-full flex flex-wrap gap-5 text-white justify-center pt-10 pb-5">
             {recipes?.map((item, index) => (
               <RecipeCard recipe={item} key={index} />
             ))}
-            </div>
-          <div className='flex w-full items-center justify-center py-10'>
+          </div>
+          <div className="flex w-full items-center justify-center py-10">
             <button className="btn btn-primary">Show More</button>
-
-         </div>
+          </div>
         </>
       ) : (
         <div className="indicator text-white w-full items-center justify-center py-8">
