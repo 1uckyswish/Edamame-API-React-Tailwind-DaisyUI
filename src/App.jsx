@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import { Routes, Route, Outlet } from 'react-router-dom';
 import RecipeDetail from './pages/RecipeDetail';
+import Search from './pages/Search';
 
 function Layout(){
   return(
@@ -17,11 +18,24 @@ function Layout(){
 }
 
 
+function SearchPage(){
+  return(
+    <>
+      <Navbar />
+      <Search/>
+      <Outlet />
+      <Footer/>
+    </>
+  )
+}
+
+
 function App() {
   return (
    <div className='bg-black'>
     <Routes>
         <Route path='/' element={<Layout />}/>
+        <Route path='/search' element={<SearchPage />}/>
         {/* <Route index element={<Home />}/> */}
         <Route path='recipes/:id' element={<RecipeDetail />}/>
     </Routes>

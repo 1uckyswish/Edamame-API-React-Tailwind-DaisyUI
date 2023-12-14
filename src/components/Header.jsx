@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Banner1, Banner2, Banner3, Banner4, Banner5 } from '../images'
 
 const images = [Banner1, Banner2, Banner3, Banner4, Banner5];
 
 function Header({image, title, type}) {
+  const navigate = useNavigate();
   return (
     // <div className='w-full h-[100vh]'>
     //   <div className='relative w-full h-full'>
@@ -25,7 +27,7 @@ function Header({image, title, type}) {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">{title}</h1>
       <p className="mb-5 text-lg ">Explore the culinary world with Edamam! Dive into our database of nearly 900,000 entries, from everyday basics to restaurant delights and convenient packaged goods.</p>
-      <button className="btn btn-primary">Get Started with your next recipe!</button>
+      <button className="btn btn-primary" onClick={()=>navigate("/search")}>Get Started with your next recipe!</button>
     </div>
   </div>
 </div>
