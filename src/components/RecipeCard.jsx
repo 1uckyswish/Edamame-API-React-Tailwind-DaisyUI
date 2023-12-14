@@ -64,8 +64,8 @@ const formattedText = randomPhrase
        
     <div className="card-actions justify-start">
       {
-        healthLabels.slice(0, 4).map((item)=>{
-            return <div className="badge badge-outline">{item}</div>
+        healthLabels.slice(0, 4).map((item,index)=>{
+            return <div className="badge badge-outline" key={index}>{item}</div>
         })
       }
     </div>

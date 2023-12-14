@@ -6,8 +6,7 @@ function Search() {
   return (
     <>
       <div className='w-full flex flex-col'>
-        <Header title={<p>Taste the world with <br /> Edamame</p>} type="home" />
-       
+        <Header title={<p>  Unlock your next Edamame recipe with just one search.</p>} type="Search" search={" Uncover a world of delicious possibilities as you discover the perfect Edamame-inspired dish, bringing innovation and joy to your kitchen."}/>
       </div>
       <Recipes />
     </>
