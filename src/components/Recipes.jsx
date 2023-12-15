@@ -1,48 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
-import { BsSearch } from "react-icons/bs";
-import Loader from "./Loader";
-import Searchbar from "./SearchBar";
-import RecipeCard from "./RecipeCard";
-import { fetchRecipes } from "../utils";
+import React, { useEffect, useState } from 'react';
+import { BiSearchAlt2 } from 'react-icons/bi';
+import Searchbar from './SearchBar';
+import RecipeCard from './RecipeCard';
+import { fetchRecipes } from '../utils';
+import Loading from './Loader';
 
-function Recipes() {
+const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("Pizza");
-  const [limit, setLimit] = useState(12);
+  const [query, setQuery] = useState('Vegan');
+  const [limit, setLimit] = useState(15);
   const [loading, setLoading] = useState(false);
-  const [typingTimeout, setTypingTimeout] = useState(null);
 
-  const lastKeyPressed = useRef("");
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
 
-  function handleKeyDown(e) {
-    lastKeyPressed.current = e.key;
-  }
+  const handlebtn = (value) => {
+    setQuery(value);
+  };
 
-  function handleChange(e) {
-    // Clear the previous timeout
-    clearTimeout(typingTimeout);
-
-    // Check if the pressed key is "Enter"
-    if (e.key === "Enter") {
-      e.preventDefault(); // Prevent form submission
-      setQuery(e.target.value.trim());
-      fetchData();
-    } else {
-      // Set a new timeout to wait for the user to finish typing
-      const newTimeout = setTimeout(() => {
-        setQuery(e.target.value.trim());
-        fetchData();
-      }, 1000); // Adjust the timeout duration as needed
-
-      setTypingTimeout(newTimeout);
-    }
-  }
-
-  const fetchData = async () => {
+  const fetchRecipe = async () => {
     try {
       const data = await fetchRecipes({ query, limit });
       setRecipes(data?.hits);
       setLoading(false);
+      console.log(data?.hits)
     } catch (error) {
       console.log(error);
     } finally {
@@ -50,110 +32,106 @@ function Recipes() {
     }
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent form submission
-    lastKeyPressed.current = ""; // Reset lastKeyPressed
-    if (query.trim() !== "") {
-      setLoading(true);
-      fetchData();
+  const handleSearchedRecipe = (e) => {
+    e.preventDefault();
+    fetchRecipe();
+  };
+
+ 
+  const showMore = async () => {
+
+
+    try {
+      // Fetch additional recipes
+      const data = await fetchRecipes({ query, limit: limit + 10 });
+      setRecipes((prevRecipes) => [...prevRecipes, ...(data?.hits || [])]);
+      setLimit((prev) => prev + 10);
+    } catch (error) {
+      console.error('Error fetching more recipes:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    // Fetch data when the component mounts
-    fetchData();
-  }, [query]); // Empty dependency array ensures it runs only once when the component mounts
+    const delayDebounceFn = setTimeout(() => {
+      setLoading(true);
+      fetchRecipe();
+    }, 1000); // Adjust the delay according to your needs
 
-  useEffect(() => {
-  // Check if the query is not empty and the last key pressed was "Enter"
-  if (query.trim() !== "" && lastKeyPressed.current === "Enter") {
-    setLoading(true);
-    fetchData();
-  }
-}, [query]);
+    return () => clearTimeout(delayDebounceFn);
+  }, [query]);
 
-
-  const handleCategoryClick = (category) => {
-    setQuery(category);
-    setLoading(true);
-    fetchData();
-  };
-
-  if (loading) {
+ if (loading) {
     return(
       <div className="h-[50vh]">
-        <Loader />
+        <Loading />
       </div>
     )
   }
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="w-full flex items-center justify-center pt-10 pb-5 px-0 md:px-10 text-white">
-        <form className="w-full lg:w-2/4" onSubmit={handleFormSubmit}>         
-         <Searchbar
-            placeholder="eg. Enter Food Item, Dietary Preference, Ingredient, Dish"
+   <div className="w-full flex flex-col items-center">
+      <div className="w-full flex items-center justify-center pt-10 pb-5 px-0 md:px-10">
+        <form className="w-full lg:w-2/4" onSubmit={handleSearchedRecipe}>
+          <Searchbar
+            placeholder="eg. Cake, Vegan, Chicken"
             handleInputChange={handleChange}
-            onKeyDown={handleKeyDown}
-            rightIcon={<BsSearch className="text-gray-600 " />}
+            rightIcon={
+              <BiSearchAlt2
+                className="text-gray-600"
+                onClick={handleSearchedRecipe}
+              />
+            }
           />
         </form>
       </div>
-
-      {/* <div tabIndex={0} className="collapse collapse-close border border-base-100 bg-base-300 w-[25%] h-14"> 
-  <div className="collapse-title text-xl font-medium text-center pl-16">
-    Select Categories
-  </div>
-  <div className="collapse-content"> 
-    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-  </div>
-</div> */}
-
-      <div className="flex justify-around items-center pt-5  w-[40%]">
-        <button
-          className="btn btn-accent"
-          onClick={() => handleCategoryClick("Breakfast")}
+ <div className="flex justify-around items-center pt-5 w-[40%] ">
+        <p
+           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
+          onClick={() => handlebtn("Breakfast")}
         >
           Breakfast
-        </button>
-        <button
-          className="btn  btn-accent"
-           onClick={() => handleCategoryClick("Lunch")}
+        </p>
+        <p
+          className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
+           onClick={() => handlebtn("Lunch")}
         >
           Lunch
-        </button>
-        <button
-          className="btn  btn-accent"
-          onClick={() => handleCategoryClick("Supper")}
+        </p>
+        <p
+          className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
+          onClick={() => handlebtn("Supper")}
         >
           Dinner
-        </button>
-        <button
-          className="btn btn-accent"
-           onClick={() => handleCategoryClick("Sweets")}
+        </p>
+        <p
+           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
+           onClick={() => handlebtn("Sweets")}
         >
           Dessert
-        </button>
-        <button
-          className="btn  btn-accent"
-           onClick={() => handleCategoryClick("Appetizers")}
+        </p>
+        <p
+           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
+           onClick={() => handlebtn("Appetizers")}
         >
           Appetizer
-        </button>
+        </p>
       </div>
-      {recipes?.length > 0 ? (
-        <>
-          <div className="w-full flex flex-wrap gap-5 text-white justify-center pt-10 pb-5">
-            {recipes?.map((item, index) => (
-              <RecipeCard recipe={item} key={index} />
-            ))}
-          </div>
+            {
+                recipes?.length > 0 ? (
+                    <>
+                        <div className="w-full flex flex-wrap gap-5 text-white justify-center pt-10 pb-5">
+                            {
+                                recipes?.map((item, index) => (
+                                    <RecipeCard recipe={item} key={index} />))
+                            }
+                       </div>
           <div className="flex w-full items-center justify-center py-10">
-            <button className="btn btn-primary">Show More</button>
+            <p className="btn btn-primary" onClick={showMore}> {loading ? 'Loading...' : 'Show More'}</p>
           </div>
         </>
-      ) : (
-        <div className="indicator text-white w-full items-center justify-center py-8">
+                ) : <div className="indicator text-white w-full items-center justify-center py-8">
           <div className="indicator-item indicator-bottom"></div>
           <div className="card border">
             <div className="card-body">
@@ -164,9 +142,9 @@ function Recipes() {
             </div>
           </div>
         </div>
-      )}
-    </div>
-  );
+            }
+        </div>
+    )
 }
 
-export default Recipes;
+export default Recipes

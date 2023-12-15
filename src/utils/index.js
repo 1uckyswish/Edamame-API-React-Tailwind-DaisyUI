@@ -17,3 +17,22 @@ export async function fetchRecipes(filter) {
         throw error;
     }
 }
+
+export async function fetchRecipe(id) {
+  const url = `https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23${id}&app_id=${import.meta.env.VITE_APP_ID}&app_key=${import.meta.env.VITE_API_KEY}`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    console.error('Error fetching recipe:', error.message);
+    throw error;
+  }
+}
+

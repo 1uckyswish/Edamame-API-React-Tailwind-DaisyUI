@@ -4,7 +4,7 @@ import { Banner1, Banner2, Banner3, Banner4, Banner5 } from '../images';
 
 const images = [Banner1, Banner2, Banner3, Banner4, Banner5];
 
-function Header({ title, type, search }) {
+function Header({ title, type, search, image }) {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
@@ -49,8 +49,7 @@ function Header({ title, type, search }) {
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: `url(${loadedImages[currentImageIndex] || ''})`,
-        transition: 'background-image 1s ease-in-out',
+        backgroundImage: `url(${image ? image : loadedImages[currentImageIndex] || ''})`,        transition: 'background-image 1s ease-in-out',
       }}
     >
       <div className="hero-overlay bg-gradient-to-t from-black to-transparent top-0 z-8"></div>
@@ -58,7 +57,7 @@ function Header({ title, type, search }) {
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">{title}</h1>
           <p className="mb-5 text-lg ">
-            {search
+         {search
               ? search
               : 'Explore the culinary world with Edamam! Dive into our database of nearly 900,000 entries, from everyday basics to restaurant delights and convenient packaged goods.'}
           </p>
@@ -66,11 +65,13 @@ function Header({ title, type, search }) {
             <button className="btn btn-primary" onClick={scrollToSearch}>
               Search Recipe's down below
             </button>
-          ) : (
+          ) : type === 'Recipe' ? (
             <button className="btn btn-primary" onClick={() => navigate('/search')}>
-              Get Started with your next recipe!
+              Return to Search
             </button>
-          )}
+          ) : <button className="btn btn-primary" onClick={() => navigate('/search')}>
+              Get Started with your next recipe!
+            </button>}
         </div>
       </div>
     </div>
