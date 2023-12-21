@@ -78,7 +78,7 @@ if (loading) {
 
         </div>
 
-        <div className='w-full flex flex-col ml-16 sm:flex-row gap-8 py-20 pxx-4 md:px-10'>
+        <div className='w-full flex flex-col md:flex-row gap-8 py-20 pxx-4 md:px-10'>
           {/* LEFT SIDE */}
           <div className='w-full md:w-2/4 md:border-r border-slate-800 pr-1'>
             <div className='flex flex-col gap-5'>
