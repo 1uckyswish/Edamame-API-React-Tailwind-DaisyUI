@@ -1,8 +1,14 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'neutral-focus': 'var(--color-neutral-focus, #272525)', // Define the neutral-focus color
+      },
+      textColor: {
+        'neutral-content': 'var(--color-neutral-content, #e9e7e7)', // Define the neutral-content color
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

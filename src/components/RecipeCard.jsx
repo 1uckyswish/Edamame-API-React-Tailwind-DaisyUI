@@ -50,33 +50,41 @@ const formattedText = randomPhrase
 // Use formattedText in your component
 
   return (
-    <div className='w-full md:w-[300px]'>
-    <div className="card bg-base-100 shadow-xl w-auto text-black">
-  <figure><img src={image} alt={label} className='rounded-lg h-[250px] w-full'/></figure>
-  <div className="card-body p-3 h-[45vh]">
-    <h2 className="card-title font-bold">
-     {label}
-    </h2>
-    <div className="justify-start pb-0.5">
-         <div className="badge badge-accent text-[12px] capitalize">{cuisineType[0]}</div>
-       <div className="badge badge-accent text-[12px] capitalize">{mealType}</div>
-    </div>
-       
-    <div className="card-actions justify-start">
-      {
-        healthLabels.slice(0, 4).map((item,index)=>{
-            return <div className="badge badge-outline" key={index}>{item}</div>
-        })
-      }
-    </div>
-     <p>{formattedText}</p>
-   <div className="flex justify-center">
-            <Link to={`/recipes/${id}`} className="btn btn-primary">View Recipe</Link>
-            <Link to={`${url}`} className="btn btn-accent ml-2">Read Article</Link>
-          </div>
+ <div className='w-full md:w-[300px]'> 
+ <div className="card bg-neutral-focus shadow-xl w-auto text-neutral-content rounded-lg h-full overflow-hidden">
+  <div className="card w-auto bg-neutral-focus shadow-xl h-full">
+      <figure><img src={image} alt={label} className='object-cover h-[250px] w-full rounded-t-lg'/></figure>
+      <div className="card-body items-start p-5">
+        <h2 className="card-title text-lg text-primary-content">
+          {label}
+        </h2>
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="badge badge-primary text-xs capitalize">{cuisineType[0]}</div>
+          <div className="badge badge-primary text-xs capitalize">{mealType}</div>
+        </div>
+        <div className="flex flex-wrap">
+          {healthLabels.slice(0, 4).map((item, index) => (
+            <div className="badge badge-accent text-xs capitalize m-1" key={index}>
+              {item}
+            </div>
+          ))}
+        </div>
+        <p className="text-white text-sm">{formattedText}</p>
+        <div className="flex justify-center mt-4 card-actions">
+          <Link to={`/recipes/${id}`} className="btn btn-primary mr-2 btn-outline">
+            View Recipe
+          </Link>
+          <Link to={`${url}`} className="btn btn-accent btn-outline">
+            Read Article
+          </Link>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+
   )
 }
 

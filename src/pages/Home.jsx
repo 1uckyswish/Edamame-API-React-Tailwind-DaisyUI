@@ -10,16 +10,22 @@ function Home() {
     <main className='w-full flex-col'>
         <Header title={<p>Taste the world with <br /> Edamame</p>} type="home"/>
         <section id='recipes' className='md:max-[1440px] mx-auto px-4 md:px-20'>
-   <div className="hero bg-base text-white">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <img src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?q=80&w=2984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 className="text-5xl font-bold">500+ Top Web Recipe Sources</h1>
-      <p className="py-6">Our search algorithm returns the most relevant recipes from the most popular and best recipes sources on the web. We order recipes by their cookability and quality, so you can always count on getting the best recipes!</p>
-      <button className="btn btn-primary" onClick={()=>navigate("/search")}>Get Started</button>
+
+<div className="hero bg-base text-white">
+  <div className="hero-content flex-col lg:flex-row-reverse items-center">
+    <img
+      src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?q=80&w=2984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      className="max-w-full lg:max-w-sm rounded-lg shadow-2xl mb-8 lg:mb-0"
+      alt="Recipe"
+    />
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl lg:text-6xl font-bold mb-4 lg:mb-6">500+ Top Web Recipe Sources</h1>
+      <p className="py-2 lg:py-6">Our search algorithm returns the most relevant recipes from the most popular and best recipes sources on the web. We order recipes by their cookability and quality, so you can always count on getting the best recipes!</p>
+      <button className="btn btn-primary" onClick={() => navigate("/search")}>Get Started</button>
     </div>
   </div>
 </div>
+
 
 <div className="carousel carousel-center mt-8 p-4 space-x-4 bg-neutral rounded-box">
 
@@ -77,33 +83,81 @@ function Home() {
 
 
 <div className="hero bg-base text-white mt-8">
-  <div className="hero-content flex-col lg:flex-row">
-    <img src="https://images.unsplash.com/photo-1506617564039-2f3b650b7010?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 className="text-5xl font-bold">Full Nutrition For Each Recipe</h1>
-      <p className="py-6">We have the most accurate automated nutrition analysis on the web powered. Every user get's a  detailed nutrition breakdown of each recipe with 25+ nutrients and appropriateness for all major diets.</p>
-      <button className="btn btn-primary" onClick={()=>navigate("/search")}>Get Started</button>
+  <div className="hero-content flex-col lg:flex-row items-center">
+    <img
+      src="https://images.unsplash.com/photo-1506617564039-2f3b650b7010?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      className="max-w-full lg:max-w-sm rounded-lg shadow-2xl mb-8 lg:mb-0"
+      alt="Nutrition Recipe"
+    />
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl lg:text-6xl font-bold mb-4 lg:mb-6">Full Nutrition For Each Recipe</h1>
+      <p className="py-2 lg:py-6">We have the most accurate automated nutrition analysis on the web powered. Every user gets a detailed nutrition breakdown of each recipe with 25+ nutrients and appropriateness for all major diets.</p>
+      <button className="btn btn-primary" onClick={() => navigate("/search")}>Get Started</button>
     </div>
   </div>
 </div>
 
-<div className='flex w-auto my-6 justify-center'>
-  <div className="stats shadow">
+
+{/* <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+            dd
+            </div>
+            <div className="pr-5 stat-title">Followers</div>
+            <div className="pr-5 text-3xl stat-value md:text-4xl">
+             dd
+            </div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+             h
+            </div>
+            <div className="pr-5 stat-title">Following</div>
+            <div className="pr-5 text-3xl stat-value md:text-4xl">
+            hh
+            </div>
+          </div>
+          
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+             hh
+            </div>
+            <div className="pr-5 stat-title">Public Repos</div>
+            <div className="pr-5 text-3xl stat-value md:text-4xl">
+             hh
+            </div>
+          </div>
+          
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+             hh
+            </div>
+            <div className="pr-5 stat-title">Public Gists</div>
+            <div className="pr-5 text-3xl stat-value md:text-4xl">
+              hh
+            </div>
+          </div>
+        </div>
+      */}
+
+<div className="w-full py-5 my-10 rounded-lg shadow-md bg-base-100 stats">
+  <div className="stats">
   
   <div className="stat">
     <div className="stat-figure text-primary">
            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
     </div>
-    <div className="stat-title">Total Recipes</div>
+    <div className="stat-title text-[#24321a]">Total Recipes</div>
     <div className="stat-value text-primary">2.3M</div>
-    <div className="stat-desc">Jan 1st - November 31st</div>
+    <div className="stat-desc">Jan 1st 2023 - Nov 31st 2023</div>
     
   </div>
   
   <div className="stat">
     <div className="stat-figure text-primary">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>    </div>
-    <div className="stat-title">Food Items</div>
+    <div className="stat-title text-[#24321a]">Food Items</div>
     <div className="stat-value text-primary">900K</div>
     <div className="stat-desc">↗︎ 400 (22%)</div>
   </div>
@@ -111,24 +165,38 @@ function Home() {
    <div className="stat">
     <div className="stat-figure text-primary">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>       </div>
-    <div className="stat-title">Major Diets/Allergens</div>
+    <div className="stat-title text-[#24321a]">Major Diets/Allergens</div>
     <div className="stat-value text-primary">40+</div>
     <div className="stat-desc">↘︎ 90 (14%)</div>
+  </div>
+
+    <div className="stat">
+    <div className="stat-figure text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+    </div>
+    <div className="stat-title text-[#24321a]">Total Users</div>
+    <div className="stat-value text-primary">4.6K</div>
+    <div className="stat-desc">2% more than last month</div>
   </div>
  
 </div>
 </div>
 
- <div className="hero bg-base text-white">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <img src="https://images.unsplash.com/photo-1565895405138-6c3a1555da6a?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlldHxlbnwwfHwwfHx8MA%3D%3D" className="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 className="text-5xl font-bold">Filtered Recipe's By Diet And Health</h1>
-      <p className="py-6">The Edamame database allows users to filter foods based on diet and health criteria. All data in the food database is enhanced with diet, allergy, and nutrition labels, which are calculated by Edamam using the ingredients of each food. Among the 70+ claims automatically generated, some examples include Peanut-Free, Shellfish-Free, Gluten-Free, Vegan, and Vegetarian.</p>
-      <button className="btn btn-primary" onClick={()=>navigate("/search")}>Get Started</button>
+<div className="hero bg-base text-white">
+  <div className="hero-content flex-col lg:flex-row-reverse items-center">
+    <img
+      src="https://images.unsplash.com/photo-1565895405138-6c3a1555da6a?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlldHxlbnwwfHwwfHx8MA%3D%3D"
+      className="max-w-full lg:max-w-sm rounded-lg shadow-2xl mb-8 lg:mb-0"
+      alt="Filtered Recipe"
+    />
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl lg:text-6xl font-bold mb-4 lg:mb-6">Filtered Recipe's By Diet And Health</h1>
+      <p className="py-2 lg:py-6">The Edamame database allows users to filter foods based on diet and health criteria. All data in the food database is enhanced with diet, allergy, and nutrition labels, which are calculated by Edamam using the ingredients of each food. Among the 70+ claims automatically generated, some examples include Peanut-Free, Shellfish-Free, Gluten-Free, Vegan, and Vegetarian.</p>
+      <button className="btn btn-primary" onClick={() => navigate("/search")}>Get Started</button>
     </div>
   </div>
 </div>
+
 
 
 {/* <div className='mt-10'>

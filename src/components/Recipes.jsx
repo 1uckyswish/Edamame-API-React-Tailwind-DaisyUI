@@ -8,7 +8,7 @@ import Loading from './Loader';
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('Vegan');
-  const [limit, setLimit] = useState(15);
+  const [limit, setLimit] = useState(16);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -38,20 +38,32 @@ const Recipes = () => {
   };
 
  
-  const showMore = async () => {
+//  const showMore = async () => {
+//   try {
+//     setLoading(true);
+
+//     // Fetch additional recipes
+//     const data = await fetchRecipes({ query, limit: limit + 10 });
+
+//     // Check if there are new recipes
+//     if (data?.hits && data.hits.length > 0) {
+//       // Use a Set to ensure unique recipes
+//       const uniqueRecipes = new Set([...recipes, ...data.hits]);
+//       setRecipes([...uniqueRecipes]);
+//       setLimit((prev) => prev + 10);
+//     }
+//   } catch (error) {
+//     console.error('Error fetching more recipes:', error);
+//   } finally {
+//     setLoading(false);
+//   }
+// };
 
 
-    try {
-      // Fetch additional recipes
-      const data = await fetchRecipes({ query, limit: limit + 10 });
-      setRecipes((prevRecipes) => [...prevRecipes, ...(data?.hits || [])]);
-      setLimit((prev) => prev + 10);
-    } catch (error) {
-      console.error('Error fetching more recipes:', error);
-    } finally {
-      setLoading(false);
+   const showMore = () => {
+        setLimit(prev => prev + 10)
+        fetchRecipe()
     }
-  };
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -60,7 +72,7 @@ const Recipes = () => {
     }, 1000); // Adjust the delay according to your needs
 
     return () => clearTimeout(delayDebounceFn);
-  }, [query]);
+  }, [query, limit]);
 
  if (loading) {
     return(
@@ -86,38 +98,34 @@ const Recipes = () => {
           />
         </form>
       </div>
- <div className="flex justify-around items-center pt-5 w-[40%] ">
-        <p
-           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
-          onClick={() => handlebtn("Breakfast")}
-        >
-          Breakfast
-        </p>
-        <p
-          className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
-           onClick={() => handlebtn("Lunch")}
-        >
-          Lunch
-        </p>
-        <p
-          className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
-          onClick={() => handlebtn("Supper")}
-        >
-          Dinner
-        </p>
-        <p
-           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
-           onClick={() => handlebtn("Sweets")}
-        >
-          Dessert
-        </p>
-        <p
-           className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525]"
-           onClick={() => handlebtn("Appetizers")}
-        >
-          Appetizer
-        </p>
-      </div>
+      <div className="flex flex-row flex-wrap sm:flex-row justify-around items-center pt-5 sm:flex md:flex lg:flex xl:flex">     
+       <p
+    className=" btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525] m-2 sm:mb-0 sm:mr-3"
+    onClick={() => handlebtn("Breakfast")}
+  >
+    Breakfast
+  </p>
+  <p
+    className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525] m-2 sm:mb-0 sm:mr-3"
+    onClick={() => handlebtn("Lunch")}
+  >
+    Lunch
+  </p>
+  <p
+    className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525] m-2 sm:mb-0 sm:mr-3"
+    onClick={() => handlebtn("Supper")}
+  >
+    Dinner
+  </p>
+  <p
+    className="btn btn-accent hover:bg-[#cde2c1] border-none hover:text-[#272525] m-2 sm:mb-0 sm:mr-3"
+    onClick={() => handlebtn("Sweets")}
+  >
+    Dessert
+  </p>
+
+</div>
+
             {
                 recipes?.length > 0 ? (
                     <>

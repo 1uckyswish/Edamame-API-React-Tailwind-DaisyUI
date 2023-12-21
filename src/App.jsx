@@ -30,6 +30,17 @@ function SearchPage(){
 }
 
 
+function RecipeLayout(){
+  return(
+    <>
+      <Navbar />
+      <RecipeDetail/>
+      <Outlet />
+      <Footer/>
+    </>
+  )
+}
+
 function App() {
   return (
    <div className='bg-black'>
@@ -37,7 +48,7 @@ function App() {
         <Route path='/' element={<Layout />}/>
         <Route path='/search' element={<SearchPage />}/>
         {/* <Route index element={<Home />}/> */}
-        <Route path='recipes/:id' element={<RecipeDetail />}/>
+        <Route path='recipes/:id' element={<RecipeLayout />}/>
     </Routes>
    </div>
   )
