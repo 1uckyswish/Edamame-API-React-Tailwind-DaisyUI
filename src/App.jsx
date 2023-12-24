@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import { Routes, Route, Outlet } from 'react-router-dom';
 import RecipeDetail from './pages/RecipeDetail';
 import Search from './pages/Search';
+import About from './pages/About';
 
 function Layout(){
   return(
@@ -49,6 +50,7 @@ function App() {
         <Route path='/search' element={<SearchPage />}/>
         {/* <Route index element={<Home />}/> */}
         <Route path='recipes/:id' element={<RecipeLayout />}/>
+        <Route path='/about' element={<About/>} />
     </Routes>
    </div>
   )

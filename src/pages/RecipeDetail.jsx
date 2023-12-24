@@ -54,49 +54,65 @@ function RecipeDetail() {
       <div className="w-full px-4 lg:px-20 pt-5">
         <div className="flex gap-10 items-center justify-center px-4">
           <div className="flex flex-col justify-between">
-            <span className="text-white text-center border border-gray-500 py-1.5 px-2 rounded-full mb-2">
+            <span className="text-primary text-center border border-gray-500 py-1.5 px-2 rounded-full mb-2">
               {recipe?.calories.toFixed(2)}{" "}
             </span>
 
-            <p className="text-neutral-100 text-[12px] md:text-md">CALORIES</p>
+            <p className=" text-[12px] md:text-md text-secondary">CALORIES</p>
           </div>
 
           <div className="flex flex-col justify-center">
-            <span className="text-white text-center border border-gray-500 py-1.5 rounded-full mb-2">
+            <span className="text-primary text-center border border-gray-500 py-1.5 rounded-full mb-2">
               {recipe?.totalTime}
             </span>
-            <p className="text-neutral-100 text-[12px] md:text-md">
+            <p className="text-secondary text-[12px] md:text-md">
               TOTAL TIME
             </p>
           </div>
 
    <div className="flex flex-col justify-center">
-       <span className="text-white text-center border border-gray-500 py-1.5 rounded-full mb-2">
+       <span className="text-primary text-center border border-gray-500 py-1.5 rounded-full mb-2">
               {recipe?.yield}
             </span>
-            <p className="text-neutral-100 text-[12px] md:text-md">SERVINGS</p>
+            <p className="text-secondary text-[12px] md:text-md">SERVINGS</p>
           </div>
         </div>
 
   <div className="w-full flex flex-col md:flex-row gap-8 py-8 px-4 md:px-10"> {/* Adjusted padding */}         
    {/* LEFT SIDE */}
    
-    <div className="w-full md:w-2/4 md:border-r border-slate-800 pr-4 md:pr-8"> {/* Adjusted padding */}            <div className="flex flex-col gap-5">
-              <p className="text-green-500 text-2xl underline">Ingredients</p>
+    <div className="w-full md:w-3/4 md:border-r border-slate-700 pr-4 md:pr-8"> {/* Adjusted padding */}            <div className="flex flex-col gap-5">
 
-              {recipe?.ingredientLines?.map((ingredient, index) => {
-                return (
-                  <p key={index} className="text-neutral-100 flex gap-2">
-                    <MdPushPin className="text-green-800 text-xl" />{" "}
-                    {ingredient}
-                  </p>
-                );
-              })}
+
+  <div className="overflow-x-auto text-white">
+  <table className="table table-pin-rows">
+    <thead>
+      <tr className="bg-black border-b border-b-slate-700">
+        <th className="text-accent text-2xl">Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
+      {recipe?.ingredientLines?.map((ingredient, index) => {
+        return (
+          <tr key={index} className="text-neutral-100 border-b border-b-slate-700">
+  <td className="flex items-center">
+    <MdPushPin className="text-green-800 text-xl flex-shrink-0" />
+    <span className="text-xl ml-2 flex-grow">{ingredient}</span>
+  </td>
+</tr>
+
+
+        );
+      })}
+    </tbody>
+  </table>
+</div>
+
             </div>
 
             {recipe?.tags?.length > 0 && (
               <div className="flex flex-col gap-3 mt-20">
-                <p className="text-green-700 text-2xl underline">
+                <p className="text-accent text-2xl ">
                   Related Tags
                 </p>
 
@@ -118,19 +134,24 @@ function RecipeDetail() {
           <div className="w-full">
              {recipe?.instructionLines.length !== 0 ? (
     <div className="flex flex-col gap-3">
-      <p className="text-green-700 text-2xl underline">Instructions</p>
+      <p className="text-accent text-2xl bold">Instructions</p>
 
       <div className="flex flex-wrap gap-4">
         {recipe?.instructionLines.map((item, index) => (
-          <p
-            className="text-white flex gap-2 bg-[#fff5f518] px-4 py-1 rounded-full "
-            key={index}
-          >
-            <PiBowlFoodDuotone color="green" /> {item}
-          </p>
+               <ul className="menu bg-[#fff5f518] text-white w-full rounded-box">
+  <li>
+    <a>
+      <PiBowlFoodDuotone color="green" />{item}
+    Item 2
+    </a>
+  </li>
+</ul>
+
         ))}
       </div>
     </div>
+
+    
   ) : (
     <div className="w-full">
       {recommend?.length > 0 ? (

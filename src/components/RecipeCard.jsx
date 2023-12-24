@@ -55,7 +55,7 @@ const formattedText = randomPhrase
   <div className="card w-auto bg-neutral-focus shadow-xl h-full">
       <figure><img src={image} alt={label} className='object-cover h-[250px] w-full rounded-t-lg'/></figure>
       <div className="card-body items-start p-5">
-        <h2 className="card-title text-lg text-primary-content">
+        <h2 className="card-title text-lg text-white">
           {label}
         </h2>
         <div className="flex items-center space-x-2 mb-2">

@@ -72,6 +72,11 @@ module.exports = {
           "--border-btn": "1px",
         },
       },
+      "retro",
+      "cyberpunk",
+      "valentine",
+      "halloween",
+      "dracula",
     ],
   },
 };

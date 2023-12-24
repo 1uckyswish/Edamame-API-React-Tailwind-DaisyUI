@@ -360,7 +360,19 @@ function Home() {
           </label>
         </div> */}
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Subscribe</button>
+          {/* The button to open modal */}
+<label htmlFor="my_modal_7" className="btn btn-primary">Subscribe</label>
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my_modal_7" className="modal-toggle" />
+<div className="modal" role="dialog">
+  <div className="modal-box">
+    <h3 className="text-lg font-bold text-center">Thank you!</h3>
+    <h3 className="text-lg font-bold text-center">Welcome to the Edamame Family</h3>
+    <p className="py-4 text-center">Check Your Email to see our staffs favorite recipes!</p>
+  </div>
+  <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+</div>
         </div>
       </form>
     </div>
