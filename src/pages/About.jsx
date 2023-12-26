@@ -13,28 +13,39 @@ function About() {
           transition: 'background-image 1s ease-in-out',
         }}
       >
-        <div className="hero-overlay bg-gradient-to-t from-black to-transparent top-0 z-8 absolute w-full h-full"></div>
-        <div className="hero-content text-center text-neutral-content relative z-10">
-          <div className="max-w-md mx-auto text-white">
-            <h1 className="mb-5 text-5xl font-bold">Welcome to my Food Recipe Web Application!</h1>
-            <p className="mb-5 text-lg">
-              Crafted with the power duo of React and Tailwind CSS, this high-tech interface seamlessly integrates with the Edamam API, unleashing a dynamic user experience for effortless exploration of avant-garde recipes. Whether you're on the hunt for culinary inspiration or fine-tuning your dietary journey, consider this platform your portal to a realm of new flavors and health transformations.
-            </p>
-          </div>
-        </div>
-      </div>
+       <div className="hero-overlay bg-gradient-to-t from-black to-transparent top-0 z-8 absolute w-full h-full"></div>
+<div className="hero-content text-center text-neutral-content relative z-10">
+  <div className="max-w-md mx-auto text-white">
+    <h1 className="mb-5 text-5xl font-bold">Welcome to my Food Recipe Web Application!</h1>
+    <p className="mb-5 text-lg">
+      Explore a sleek interface powered by React, Tailwind CSS, and Styled Components, with added magic from the Daisy UI library. Connected to the Edamam API, it offers delicious recipes and personalized recommendations based on dietary preferences.
+    </p>
+    <p className="mb-5 text-lg">
+      More than a coding achievement, it reflects my commitment to crafting user-friendly, innovative web experiences. Dive into a world of culinary possibilities with my Food Recipe Web App!
+    </p>
+  </div>
+</div>
+</div>
 
-      <div className="mb-28 mx-auto max-w-2xl text-center text-white">
-        <div className="avatar mb-6">
-          <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
-            <img className="object-cover w-full h-full" src="https://avatars.githubusercontent.com/u/107442415?v=4" alt="Noel Guillen" />
-          </div>
-        </div>
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className="text-lg text-gray-200">
-          Hey there! I'm Noel, a passionate front-end developer. My journey involves turning ideas into interactive and visually appealing web experiences. Check out my <a href="https://noelguillen.netlify.app/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Portfolio</a> to witness some of my creations. Feel free to connect with me on <a href="https://www.linkedin.com/in/noel-guillen-blas-b63353257/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a> or explore my coding adventures on <a href="https://github.com/1uckyswish" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
-        </p>
+
+  
+
+     <div className="hero min-h-screen bg-base text-center">
+  <div className="hero-content flex-col lg:flex-row items-center justify-center">
+    <div className="avatar mb-6">
+      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
+        <img className="object-cover w-full h-full" src="https://avatars.githubusercontent.com/u/107442415?v=4" alt="Noel Guillen" />
       </div>
+    </div>
+    <div className="text-white">
+      <h1 className="text-5xl font-bold mb-4">About Me</h1>
+      <p className="text-lg text-gray-200">
+        Hey, I'm Noel, a passionate front-end developer. I transform ideas into interactive and visually appealing web experiences. Check out my <a href="https://noelguillen.netlify.app/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Portfolio</a> to explore my creations. Connect with me on <a href="https://www.linkedin.com/in/noel-guillen-blas-b63353257/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a> or join my coding adventures on <a href="https://github.com/1uckyswish" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
       <Footer />
     </>
   );

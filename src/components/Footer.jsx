@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 function Footer() {
   return (
@@ -6,17 +8,17 @@ function Footer() {
  <footer className="footer p-10 bg-neutral text-neutral-content">
   <nav>
     <header className="footer-title">Company</header> 
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Github</a>
-    <a className="link link-hover">Features</a>
+    <Link to={"/about"} className="link link-hover">About us</Link>
+    <Link to={"/contact"} className="link link-hover">Contact</Link>
+    <Link to={"https://github.com/1uckyswish"} className="link link-hover">Github</Link>
+    <Link to={"https://www.linkedin.com/in/noel-guillen-blas-b63353257/"} className="link link-hover">Linkedin</Link>
   </nav> 
   <nav>
     <header className="footer-title">Apps</header> 
-    <a className="link link-hover">Mac</a>
-    <a className="link link-hover">Windows</a>
-    <a className="link link-hover">iPhone</a>
-    <a className="link link-hover">Android</a>
+    <Link to={"https://apps.apple.com/us/app/recipes-and-nutrition/id516902296"} className="link link-hover">Mac</Link>
+    <Link to={"https://play.google.com/store/apps/details?id=com.edamam.recipesearch"} className="link link-hover">Windows</Link>
+    <Link to={"https://apps.apple.com/us/app/recipes-and-nutrition/id516902296"} className="link link-hover">iPhone</Link>
+    <Link to={"https://play.google.com/store/apps/details?id=com.edamam.recipesearch"} className="link link-hover">Android</Link>
   </nav>
 
   <form>
