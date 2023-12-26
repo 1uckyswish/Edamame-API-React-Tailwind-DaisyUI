@@ -30,21 +30,17 @@ function About() {
 
   
 
-     <div className="hero min-h-screen bg-base text-center">
-  <div className="hero-content flex-col lg:flex-row items-center justify-center">
-    <div className="avatar mb-6">
-      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
-        <img className="object-cover w-full h-full" src="https://avatars.githubusercontent.com/u/107442415?v=4" alt="Noel Guillen" />
-      </div>
-    </div>
-    <div className="text-white">
-      <h1 className="text-5xl font-bold mb-4">About Me</h1>
-      <p className="text-lg text-gray-200">
-        Hey, I'm Noel, a passionate front-end developer. I transform ideas into interactive and visually appealing web experiences. Check out my <a href="https://noelguillen.netlify.app/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Portfolio</a> to explore my creations. Connect with me on <a href="https://www.linkedin.com/in/noel-guillen-blas-b63353257/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a> or join my coding adventures on <a href="https://github.com/1uckyswish" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
-      </p>
-    </div>
-  </div>
-</div>
+     <div className="mb-28 mx-auto max-w-2xl text-center text-white">
+         <div className="avatar mb-6">
+           <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
+             <img className="object-cover w-full h-full" src="https://avatars.githubusercontent.com/u/107442415?v=4" alt="Noel Guillen" />
+           </div>
+         </div>
+         <h2 className="text-3xl font-bold mb-4">About Me</h2>
+         <p className="text-lg text-gray-200">
+           Hey there! I'm Noel, a passionate front-end developer. My journey involves turning ideas into interactive and visually appealing web experiences. Check out my <a href="https://noelguillen.netlify.app/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Portfolio</a> to witness some of my creations. Feel free to connect with me on <a href="https://www.linkedin.com/in/noel-guillen-blas-b63353257/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a> or explore my coding adventures on <a href="https://github.com/1uckyswish" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
+         </p>
+       </div>
 
       <Footer />
     </>
