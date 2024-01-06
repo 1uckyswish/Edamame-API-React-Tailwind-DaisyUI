@@ -132,7 +132,7 @@ function RecipeDetail() {
 
           {/* RIGHT SIDE */}
           <div className="w-full">
-             {recipe?.instructionLines.length !== 0 ? (
+             {recipe?.instructionLines && recipe.instructionLines.length !== 0  ? (
     <div className="flex flex-col gap-3">
       <p className="text-accent text-2xl bold">Instructions</p>
 
@@ -181,7 +181,7 @@ function RecipeDetail() {
           </div>
         </div>
 
-        {recipe?.instructionLines.length !== 0 && (
+        {recipe?.instructionLines && recipe.instructionLines.length !== 0  && (
           
           <div className="w-auto flex-col justify-center items-center my-10">
   <p className="text-white text-2xl text-center">Also Try These Recipes</p>
